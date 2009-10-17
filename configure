@@ -363,6 +363,10 @@ install: .dummy
 	@echo "\$(BJAM) \$(BJAM_CONFIG) --user-config=user-config.jam --prefix=\$(prefix) --exec-prefix=\$(exec_prefix) --libdir=\$(libdir) --includedir=\$(includedir) \$(LIBS) install"
 	@\$(BJAM) \$(BJAM_CONFIG) --user-config=user-config.jam --prefix=\$(prefix) --exec-prefix=\$(exec_prefix) --libdir=\$(libdir) --includedir=\$(includedir) \$(LIBS) install || echo "Not all Boost libraries built properly."
 
+stage: .dummy
+	@echo "@\$(BJAM) \$(BJAM_CONFIG) --layout=system --user-config=user-config.jam \$(LIBS) stage"
+	@\$(BJAM) \$(BJAM_CONFIG) --layout=system --user-config=user-config.jam \$(LIBS) stage
+
 .dummy:
 
 EOF
